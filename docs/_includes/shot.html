@@ -1,0 +1,21 @@
+<!--
+  Uso: {% include shot.html base="ajustes-foco-lista" alt="Texto alternativo" %}
+  Com mac_only: true, pula iPhone/iPad (ex: atalho-seletor-foco, que só existe no Mac).
+  Espera page.lang = "pt" ou "en" definido no front matter da página que inclui.
+-->
+<div class="platform-shot">
+{% unless include.mac_only %}
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/' | append: include.base | append: '-iphone-' | append: page.lang | append: '.jpeg' | relative_url }}" alt="{{ include.alt }}" loading="lazy">
+    <figcaption>iPhone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/' | append: include.base | append: '-ipad-' | append: page.lang | append: '.jpeg' | relative_url }}" alt="{{ include.alt }}" loading="lazy">
+    <figcaption>iPad</figcaption>
+  </figure>
+{% endunless %}
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/' | append: include.base | append: '-mac-' | append: page.lang | append: '.jpeg' | relative_url }}" alt="{{ include.alt }}" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>

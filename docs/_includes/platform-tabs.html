@@ -1,0 +1,69 @@
+<!--
+  Seletor de plataforma (iPhone/iPad/Mac). As screenshots de cada base (via shot.html)
+  ficam todas no HTML; este script só decide qual `<figure>` mostrar, marcando
+  `data-platform` no <html>. Sem JS, style.scss mostra as três, lado a lado, com legenda.
+
+  Precedência: ?p= na URL (hint explícito do app) > escolha salva > detecção por
+  user agent > iPhone como padrão.
+-->
+<div class="platform-tabs" role="tablist" aria-label="Plataforma">
+  <button type="button" class="platform-tab" data-platform-btn="iphone" role="tab">iPhone</button>
+  <button type="button" class="platform-tab" data-platform-btn="ipad" role="tab">iPad</button>
+  <button type="button" class="platform-tab" data-platform-btn="mac" role="tab">Mac</button>
+</div>
+<script>
+(function () {
+  var VALID = ["iphone", "ipad", "mac"];
+  var STORAGE_KEY = "pontocerto-guia-foco-platform";
+  var html = document.documentElement;
+
+  function detectFromUserAgent() {
+    var ua = navigator.userAgent || "";
+    if (/iPhone/.test(ua)) return "iphone";
+    if (/iPad/.test(ua)) return "ipad";
+    if (/Macintosh/.test(ua)) {
+      // Safari do iPadOS 13+ se anuncia como Macintosh; toque com >1 ponto distingue.
+      return navigator.maxTouchPoints > 1 ? "ipad" : "mac";
+    }
+    return null;
+  }
+
+  function readStored() {
+    try {
+      var stored = window.localStorage.getItem(STORAGE_KEY);
+      return VALID.indexOf(stored) !== -1 ? stored : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function readFromUrl() {
+    var params = new URLSearchParams(window.location.search);
+    var fromUrl = params.get("p");
+    return VALID.indexOf(fromUrl) !== -1 ? fromUrl : null;
+  }
+
+  function apply(platform) {
+    html.setAttribute("data-platform", platform);
+    document.querySelectorAll("[data-platform-btn]").forEach(function (btn) {
+      var selected = btn.getAttribute("data-platform-btn") === platform;
+      btn.setAttribute("aria-selected", selected ? "true" : "false");
+    });
+  }
+
+  function select(platform, persist) {
+    apply(platform);
+    if (persist) {
+      try { window.localStorage.setItem(STORAGE_KEY, platform); } catch (e) {}
+    }
+  }
+
+  select(readFromUrl() || readStored() || detectFromUserAgent() || "iphone", false);
+
+  document.addEventListener("click", function (event) {
+    var btn = event.target.closest && event.target.closest("[data-platform-btn]");
+    if (!btn) return;
+    select(btn.getAttribute("data-platform-btn"), true);
+  });
+})();
+</script>

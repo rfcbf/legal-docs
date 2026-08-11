@@ -1,0 +1,136 @@
+---
+---
+@import "{{ site.theme }}";
+
+:root {
+  --pc-border: rgba(140, 140, 140, .35);
+  --pc-muted: #656d76;
+}
+
+/* Platform selector */
+.platform-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.platform-tab {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--pc-border);
+  background: transparent;
+  color: inherit;
+  font-size: .95rem;
+  cursor: pointer;
+}
+
+.platform-tab[aria-selected="true"] {
+  background: #0969da;
+  border-color: #0969da;
+  color: #fff;
+}
+
+/* Per-platform screenshots (see _includes/shot.html) */
+.platform-shot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 1rem 0;
+}
+
+.platform-fig {
+  margin: 0;
+  text-align: center;
+}
+
+.platform-fig img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--pc-border);
+}
+
+.platform-fig figcaption {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--pc-muted);
+  margin-top: 6px;
+}
+
+.shot-iphone { width: 200px; }
+.shot-ipad { width: 300px; }
+.shot-mac { width: 360px; }
+
+/* No JS (or before the script runs): show all three, side by side.
+   With data-platform set on <html>: only the active platform. */
+html[data-platform] .platform-fig { display: none; }
+html[data-platform="iphone"] .platform-fig.platform-iphone,
+html[data-platform="ipad"] .platform-fig.platform-ipad,
+html[data-platform="mac"] .platform-fig.platform-mac {
+  display: block;
+}
+
+/* Warnings - blockquote becomes an alert, not a quote (Termos/Privacidade don't use blockquote) */
+.markdown-body blockquote {
+  border-left: 4px solid #d1242f;
+  background: rgba(209, 36, 47, .08);
+  color: inherit;
+  padding: .75rem 1rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+}
+
+.markdown-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Dark mode - the app's WKWebView follows the system appearance */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0d1117;
+    color: #c9d1d9;
+  }
+
+  .markdown-body {
+    color: #c9d1d9;
+  }
+
+  .markdown-body a {
+    color: #58a6ff;
+  }
+
+  .markdown-body hr {
+    background-color: #30363d;
+  }
+
+  .markdown-body code,
+  .markdown-body pre {
+    background-color: #161b22;
+  }
+
+  .platform-tab {
+    border-color: #30363d;
+  }
+
+  .platform-tab[aria-selected="true"] {
+    background: #1f6feb;
+    border-color: #1f6feb;
+  }
+
+  .platform-fig img {
+    border-color: #30363d;
+  }
+
+  .platform-fig figcaption {
+    color: #8b949e;
+  }
+
+  .markdown-body blockquote {
+    background: rgba(248, 81, 73, .1);
+    border-left-color: #f85149;
+  }
+}
