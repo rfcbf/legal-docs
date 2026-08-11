@@ -5,7 +5,66 @@ lang: pt
 
 # Configurar o Foco automático
 
-{% include platform-tabs.html %}
+<div class="platform-tabs" role="tablist" aria-label="Plataforma">
+  <button type="button" class="platform-tab" data-platform-btn="iphone" role="tab">iPhone</button>
+  <button type="button" class="platform-tab" data-platform-btn="ipad" role="tab">iPad</button>
+  <button type="button" class="platform-tab" data-platform-btn="mac" role="tab">Mac</button>
+</div>
+<script>
+(function () {
+  var VALID = ["iphone", "ipad", "mac"];
+  var STORAGE_KEY = "pontocerto-guia-foco-platform";
+  var html = document.documentElement;
+
+  function detectFromUserAgent() {
+    var ua = navigator.userAgent || "";
+    if (/iPhone/.test(ua)) return "iphone";
+    if (/iPad/.test(ua)) return "ipad";
+    if (/Macintosh/.test(ua)) {
+      return navigator.maxTouchPoints > 1 ? "ipad" : "mac";
+    }
+    return null;
+  }
+
+  function readStored() {
+    try {
+      var stored = window.localStorage.getItem(STORAGE_KEY);
+      return VALID.indexOf(stored) !== -1 ? stored : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function readFromUrl() {
+    var params = new URLSearchParams(window.location.search);
+    var fromUrl = params.get("p");
+    return VALID.indexOf(fromUrl) !== -1 ? fromUrl : null;
+  }
+
+  function apply(platform) {
+    html.setAttribute("data-platform", platform);
+    document.querySelectorAll("[data-platform-btn]").forEach(function (btn) {
+      var selected = btn.getAttribute("data-platform-btn") === platform;
+      btn.setAttribute("aria-selected", selected ? "true" : "false");
+    });
+  }
+
+  function select(platform, persist) {
+    apply(platform);
+    if (persist) {
+      try { window.localStorage.setItem(STORAGE_KEY, platform); } catch (e) {}
+    }
+  }
+
+  select(readFromUrl() || readStored() || detectFromUserAgent() || "iphone", false);
+
+  document.addEventListener("click", function (event) {
+    var btn = event.target.closest && event.target.closest("[data-platform-btn]");
+    if (!btn) return;
+    select(btn.getAttribute("data-platform-btn"), true);
+  });
+})();
+</script>
 
 ## O que essa integração faz
 
@@ -30,13 +89,39 @@ Por onde seguir:
 
 **1.** Abra **Ajustes > Foco** (no Mac, **Ajustes do Sistema > Foco**) e toque no Foco **Trabalho** — ele já vem sugerido pelo sistema, normalmente nem precisa criar nada.
 
-{% include shot.html base="ajustes-foco-lista" alt="Tela de Ajustes > Foco com o Foco Trabalho destacado na lista" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/ajustes-foco-lista-iphone-pt.jpeg' | relative_url }}" alt="Tela de Ajustes > Foco com o Foco Trabalho destacado na lista" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/ajustes-foco-lista-ipad-pt.jpeg' | relative_url }}" alt="Tela de Ajustes > Foco com o Foco Trabalho destacado na lista" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/ajustes-foco-lista-mac-pt.jpeg' | relative_url }}" alt="Tela de Ajustes > Foco com o Foco Trabalho destacado na lista" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **2.** Se **Trabalho** não estiver na lista, toque no **+** (no Mac, no botão **"Adicionar Foco…"**) e escolha **Trabalho** entre as sugestões.
 
 > **Nunca escolha "Personalizado".** Um Foco personalizado recebe uma identidade própria, diferente do Foco Trabalho embutido do sistema — e o Atalho está configurado pra ligar justamente o Foco do sistema. Um Foco personalizado com o mesmo nome não funciona.
 
-{% include shot.html base="ajustes-foco-adicionar" alt="Painel de novo Foco com Personalizado destacado como opção a evitar" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/ajustes-foco-adicionar-iphone-pt.jpeg' | relative_url }}" alt="Painel de novo Foco com Personalizado destacado como opção a evitar" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/ajustes-foco-adicionar-ipad-pt.jpeg' | relative_url }}" alt="Painel de novo Foco com Personalizado destacado como opção a evitar" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/ajustes-foco-adicionar-mac-pt.jpeg' | relative_url }}" alt="Painel de novo Foco com Personalizado destacado como opção a evitar" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 Se o seu aparelho estiver em inglês, esse mesmo Foco se chama **Work** — é o mesmo, o sistema só traduz o nome. Não precisa mexer em nada por causa disso.
 
@@ -44,15 +129,54 @@ Se o seu aparelho estiver em inglês, esse mesmo Foco se chama **Work** — é o
 
 **3.** No PontoCerto, abra **Ajustes > Foco** (no Mac: **Ajustes > Alarme e lembretes**, role até a seção Foco). Ligue a opção **Ativar/desativar Foco** e toque em **Adicionar** nos dois atalhos.
 
-{% include shot.html base="pontocerto-ajustes-foco" alt="Seção Foco nos Ajustes do PontoCerto, com o toggle ligado e os dois botões de instalar atalho" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/pontocerto-ajustes-foco-iphone-pt.jpeg' | relative_url }}" alt="Seção Foco nos Ajustes do PontoCerto, com o toggle ligado e os dois botões de instalar atalho" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/pontocerto-ajustes-foco-ipad-pt.jpeg' | relative_url }}" alt="Seção Foco nos Ajustes do PontoCerto, com o toggle ligado e os dois botões de instalar atalho" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/pontocerto-ajustes-foco-mac-pt.jpeg' | relative_url }}" alt="Seção Foco nos Ajustes do PontoCerto, com o toggle ligado e os dois botões de instalar atalho" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **4.** Confirme na folha que abrir no app Atalhos.
 
-{% include shot.html base="atalhos-tela-adicionar" alt="Tela de confirmação 'Adicionar Atalho' no app Atalhos" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/atalhos-tela-adicionar-iphone-pt.jpeg' | relative_url }}" alt="Tela de confirmação 'Adicionar Atalho' no app Atalhos" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/atalhos-tela-adicionar-ipad-pt.jpeg' | relative_url }}" alt="Tela de confirmação 'Adicionar Atalho' no app Atalhos" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalhos-tela-adicionar-mac-pt.jpeg' | relative_url }}" alt="Tela de confirmação 'Adicionar Atalho' no app Atalhos" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **5.** Em **Atalhos > Todos os Atalhos**, confira que os nomes ficaram exatamente `Ativar Foco Trabalho` e `Desativar Foco Trabalho`. Se veio com um número no fim (tipo "Ativar Foco Trabalho 2"), renomeie — o PontoCerto precisa do nome exato pra chamar o atalho certo.
 
-{% include shot.html base="atalhos-lista" alt="Lista de Todos os Atalhos com Ativar Foco Trabalho e Desativar Foco Trabalho destacados" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/atalhos-lista-iphone-pt.jpeg' | relative_url }}" alt="Lista de Todos os Atalhos com Ativar Foco Trabalho e Desativar Foco Trabalho destacados" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/atalhos-lista-ipad-pt.jpeg' | relative_url }}" alt="Lista de Todos os Atalhos com Ativar Foco Trabalho e Desativar Foco Trabalho destacados" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalhos-lista-mac-pt.jpeg' | relative_url }}" alt="Lista de Todos os Atalhos com Ativar Foco Trabalho e Desativar Foco Trabalho destacados" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **Os nomes ficam em português mesmo com o aparelho em inglês** — não traduza.
 
@@ -62,9 +186,27 @@ No Mac, os dois atalhos normalmente já aparecem sozinhos ali, sincronizados do 
 
 **6.** Abra cada atalho e confira a ação **Definir Foco**, no fim. No "Ativar", tem que estar **Trabalho** ligando. Se o campo estiver vazio (comum quando o Foco foi criado depois do atalho), toque nele e escolha **Trabalho** de novo.
 
-{% include shot.html base="atalho-definir-foco" alt="Editor do Atalho 'Ativar Foco Trabalho' com a ação Definir Foco selecionando Trabalho" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/atalho-definir-foco-iphone-pt.jpeg' | relative_url }}" alt="Editor do Atalho 'Ativar Foco Trabalho' com a ação Definir Foco selecionando Trabalho" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/atalho-definir-foco-ipad-pt.jpeg' | relative_url }}" alt="Editor do Atalho 'Ativar Foco Trabalho' com a ação Definir Foco selecionando Trabalho" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalho-definir-foco-mac-pt.jpeg' | relative_url }}" alt="Editor do Atalho 'Ativar Foco Trabalho' com a ação Definir Foco selecionando Trabalho" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
-{% include shot.html base="atalho-seletor-foco" alt="Seletor de Foco aberto sobre a ação Definir Foco, com Trabalho marcado" mac_only=true %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalho-seletor-foco-mac-pt.jpeg' | relative_url }}" alt="Seletor de Foco aberto sobre a ação Definir Foco, com Trabalho marcado" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 No "Desativar", tem duas ações de Definir Foco: a primeira desliga o Trabalho (essa você confere igual à de cima) e a segunda usa uma variável pra restaurar o Foco anterior — **essa não se mexe**.
 

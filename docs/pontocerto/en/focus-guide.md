@@ -5,7 +5,66 @@ lang: en
 
 # Set up automatic Focus
 
-{% include platform-tabs.html %}
+<div class="platform-tabs" role="tablist" aria-label="Plataforma">
+  <button type="button" class="platform-tab" data-platform-btn="iphone" role="tab">iPhone</button>
+  <button type="button" class="platform-tab" data-platform-btn="ipad" role="tab">iPad</button>
+  <button type="button" class="platform-tab" data-platform-btn="mac" role="tab">Mac</button>
+</div>
+<script>
+(function () {
+  var VALID = ["iphone", "ipad", "mac"];
+  var STORAGE_KEY = "pontocerto-guia-foco-platform";
+  var html = document.documentElement;
+
+  function detectFromUserAgent() {
+    var ua = navigator.userAgent || "";
+    if (/iPhone/.test(ua)) return "iphone";
+    if (/iPad/.test(ua)) return "ipad";
+    if (/Macintosh/.test(ua)) {
+      return navigator.maxTouchPoints > 1 ? "ipad" : "mac";
+    }
+    return null;
+  }
+
+  function readStored() {
+    try {
+      var stored = window.localStorage.getItem(STORAGE_KEY);
+      return VALID.indexOf(stored) !== -1 ? stored : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function readFromUrl() {
+    var params = new URLSearchParams(window.location.search);
+    var fromUrl = params.get("p");
+    return VALID.indexOf(fromUrl) !== -1 ? fromUrl : null;
+  }
+
+  function apply(platform) {
+    html.setAttribute("data-platform", platform);
+    document.querySelectorAll("[data-platform-btn]").forEach(function (btn) {
+      var selected = btn.getAttribute("data-platform-btn") === platform;
+      btn.setAttribute("aria-selected", selected ? "true" : "false");
+    });
+  }
+
+  function select(platform, persist) {
+    apply(platform);
+    if (persist) {
+      try { window.localStorage.setItem(STORAGE_KEY, platform); } catch (e) {}
+    }
+  }
+
+  select(readFromUrl() || readStored() || detectFromUserAgent() || "iphone", false);
+
+  document.addEventListener("click", function (event) {
+    var btn = event.target.closest && event.target.closest("[data-platform-btn]");
+    if (!btn) return;
+    select(btn.getAttribute("data-platform-btn"), true);
+  });
+})();
+</script>
 
 ## What this integration does
 
@@ -30,13 +89,39 @@ Where to start:
 
 **1.** Open **Settings > Focus** (on Mac, **System Settings > Focus**) and tap the **Work** Focus — it's already suggested by the system, so you usually don't need to create anything.
 
-{% include shot.html base="ajustes-foco-lista" alt="Settings > Focus screen with the Work Focus highlighted in the list" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/ajustes-foco-lista-iphone-en.jpeg' | relative_url }}" alt="Settings > Focus screen with the Work Focus highlighted in the list" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/ajustes-foco-lista-ipad-en.jpeg' | relative_url }}" alt="Settings > Focus screen with the Work Focus highlighted in the list" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/ajustes-foco-lista-mac-en.jpeg' | relative_url }}" alt="Settings > Focus screen with the Work Focus highlighted in the list" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **2.** If **Work** isn't in the list, tap the **+** (on Mac, the **"Add Focus…"** button) and pick **Work** from the suggestions.
 
 > **Never pick "Custom".** A custom Focus gets its own identity, separate from the system's built-in Work Focus — and the Shortcut is set up to turn on that exact system Focus. A custom Focus with the same name won't work.
 
-{% include shot.html base="ajustes-foco-adicionar" alt="New Focus panel with Custom highlighted as the option to avoid" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/ajustes-foco-adicionar-iphone-en.jpeg' | relative_url }}" alt="New Focus panel with Custom highlighted as the option to avoid" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/ajustes-foco-adicionar-ipad-en.jpeg' | relative_url }}" alt="New Focus panel with Custom highlighted as the option to avoid" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/ajustes-foco-adicionar-mac-en.jpeg' | relative_url }}" alt="New Focus panel with Custom highlighted as the option to avoid" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 If your device is in Portuguese, this same Focus is called **Trabalho** — it's the same one, the system just translates the name. No need to touch anything in the Shortcuts because of that.
 
@@ -44,15 +129,54 @@ If your device is in Portuguese, this same Focus is called **Trabalho** — it's
 
 **3.** In PontoCerto, open **Settings > Focus** (on Mac: **Settings > Alarm & Reminders**, scroll to the Focus section). Turn on **Enable/disable Focus** and tap **Add** on both shortcuts.
 
-{% include shot.html base="pontocerto-ajustes-foco" alt="Focus section in PontoCerto Settings, with the toggle on and the two Add Shortcut buttons" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/pontocerto-ajustes-foco-iphone-en.jpeg' | relative_url }}" alt="Focus section in PontoCerto Settings, with the toggle on and the two Add Shortcut buttons" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/pontocerto-ajustes-foco-ipad-en.jpeg' | relative_url }}" alt="Focus section in PontoCerto Settings, with the toggle on and the two Add Shortcut buttons" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/pontocerto-ajustes-foco-mac-en.jpeg' | relative_url }}" alt="Focus section in PontoCerto Settings, with the toggle on and the two Add Shortcut buttons" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **4.** Confirm on the sheet that opens in the Shortcuts app.
 
-{% include shot.html base="atalhos-tela-adicionar" alt="'Add Shortcut' confirmation screen in the Shortcuts app" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/atalhos-tela-adicionar-iphone-en.jpeg' | relative_url }}" alt="'Add Shortcut' confirmation screen in the Shortcuts app" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/atalhos-tela-adicionar-ipad-en.jpeg' | relative_url }}" alt="'Add Shortcut' confirmation screen in the Shortcuts app" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalhos-tela-adicionar-mac-en.jpeg' | relative_url }}" alt="'Add Shortcut' confirmation screen in the Shortcuts app" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **5.** In **Shortcuts > All Shortcuts**, check that the names are exactly `Ativar Foco Trabalho` and `Desativar Foco Trabalho`. If it came in with a number at the end (like "Ativar Foco Trabalho 2"), rename it — PontoCerto needs the exact name to call the right shortcut.
 
-{% include shot.html base="atalhos-lista" alt="All Shortcuts list with Ativar Foco Trabalho and Desativar Foco Trabalho highlighted" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/atalhos-lista-iphone-en.jpeg' | relative_url }}" alt="All Shortcuts list with Ativar Foco Trabalho and Desativar Foco Trabalho highlighted" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/atalhos-lista-ipad-en.jpeg' | relative_url }}" alt="All Shortcuts list with Ativar Foco Trabalho and Desativar Foco Trabalho highlighted" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalhos-lista-mac-en.jpeg' | relative_url }}" alt="All Shortcuts list with Ativar Foco Trabalho and Desativar Foco Trabalho highlighted" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 **The names stay in Portuguese even with the device in English** — don't translate them.
 
@@ -62,9 +186,27 @@ On Mac, both shortcuts usually show up there already, synced from the iPhone —
 
 **6.** Open each shortcut and check the **Set Focus** action at the end. In "Ativar" (turn on), it should be set to **Work**, turning on. If the field is empty (common when the Focus was created after the shortcut), tap it and pick **Work** again.
 
-{% include shot.html base="atalho-definir-foco" alt="'Ativar Foco Trabalho' Shortcut editor with the Set Focus action set to Work" %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-iphone">
+    <img class="shot-iphone" src="{{ '/pontocerto/assets/foco/atalho-definir-foco-iphone-en.jpeg' | relative_url }}" alt="'Ativar Foco Trabalho' Shortcut editor with the Set Focus action set to Work" loading="lazy">
+    <figcaption>iphone</figcaption>
+  </figure>
+  <figure class="platform-fig platform-ipad">
+    <img class="shot-ipad" src="{{ '/pontocerto/assets/foco/atalho-definir-foco-ipad-en.jpeg' | relative_url }}" alt="'Ativar Foco Trabalho' Shortcut editor with the Set Focus action set to Work" loading="lazy">
+    <figcaption>ipad</figcaption>
+  </figure>
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalho-definir-foco-mac-en.jpeg' | relative_url }}" alt="'Ativar Foco Trabalho' Shortcut editor with the Set Focus action set to Work" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
-{% include shot.html base="atalho-seletor-foco" alt="Focus picker open over the Set Focus action, with Work checked" mac_only=true %}
+<div class="platform-shot">
+  <figure class="platform-fig platform-mac">
+    <img class="shot-mac" src="{{ '/pontocerto/assets/foco/atalho-seletor-foco-mac-en.jpeg' | relative_url }}" alt="Focus picker open over the Set Focus action, with Work checked" loading="lazy">
+    <figcaption>Mac</figcaption>
+  </figure>
+</div>
 
 In "Desativar" (turn off), there are two Set Focus actions: the first turns Work off (check it the same way as above), and the second uses a variable to restore the previous Focus — **leave that one alone**.
 
