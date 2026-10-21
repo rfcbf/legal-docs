@@ -1,7 +1,7 @@
 # Termos de Uso do PontoCerto
 
 **Data de vigência:** 10 de agosto de 2026
-**Última atualização:** 10 de agosto de 2026
+**Última atualização:** 21 de outubro de 2026
 
 Leia estes Termos de Uso ("Termos") com atenção antes de usar o PontoCerto ("o App"), desenvolvido por Renato Ferraz ("desenvolvedor", "nós").
 
@@ -30,13 +30,34 @@ Você não pode:
 
 ## 3. Seus dados e privacidade
 
-O PontoCerto não possui servidor próprio. Seus registros ficam no seu dispositivo e, se ativada, a sincronização acontece exclusivamente pela sua conta iCloud pessoal. Detalhes completos na nossa [Política de Privacidade](politica-privacidade.md).
+Seus registros de ponto ficam no seu dispositivo e, se ativada, a sincronização acontece exclusivamente pela sua conta iCloud pessoal. Detalhes completos na nossa [Política de Privacidade](politica-privacidade.md).
 
-Você é o único responsável por manter backups (via iCloud) e pela segurança da sua conta Apple ID.
+Você é o único responsável por manter backups (iCloud ou arquivo de backup) e pela segurança da sua conta Apple.
 
 ---
 
-## 4. Isenção de responsabilidade sobre cálculos e alarmes
+## 4. Conta UAPP, sugestões e comentários
+
+O App permite, de forma opcional, entrar numa conta UAPP e enviar sugestões, comentários e votos pelo Feedback e pelo Roadmap. Nada disso é necessário para usar o PontoCerto.
+
+O que você publica no Roadmap pode ser visto por outras pessoas que usam o App, com o seu nome e foto. Ao enviar, você declara que o conteúdo é seu e concorda em não publicar conteúdo ilegal, ofensivo, discriminatório, sexual, violento, de spam ou que viole direitos de terceiros. Podemos ocultar ou remover conteúdo e bloquear autores que descumprirem estas regras. Para denunciar um conteúdo, escreva para o e-mail de contato abaixo.
+
+---
+
+## 5. PontoCerto Pro (assinaturas)
+
+O PontoCerto pode ser usado gratuitamente. Alguns recursos (como alarme de verdade, relatório em PDF, app do Apple Watch, widgets, histórico completo e backup automático) fazem parte do PontoCerto Pro, uma assinatura com renovação automática.
+
+- A compra é feita e cobrada pela App Store, na sua conta Apple, e segue os termos da Apple.
+- A assinatura renova automaticamente pelo mesmo período e preço, a menos que seja cancelada até 24 horas antes do fim do período atual.
+- O período de teste gratuito, quando oferecido, vira assinatura paga ao terminar, salvo cancelamento até 24 horas antes do fim do teste.
+- Você gerencia ou cancela a assinatura em Ajustes › [seu nome] › Assinaturas. O cancelamento vale a partir do fim do período já pago.
+- Reembolsos são tratados pela Apple, conforme as regras da App Store.
+- A mesma assinatura vale no iPhone, iPad, Mac e Apple Watch da mesma conta Apple. Use "Restaurar compras" para ativá-la em outro aparelho.
+
+---
+
+## 6. Isenção de responsabilidade sobre cálculos e alarmes
 
 **Este é o ponto mais importante destes Termos — leia com atenção.**
 
@@ -50,47 +71,47 @@ Você usa o PontoCerto por sua conta e risco, como ferramenta de apoio pessoal �
 
 ---
 
-## 5. Limitação de responsabilidade
+## 7. Limitação de responsabilidade
 
 Na máxima extensão permitida pela legislação brasileira, o desenvolvedor não será responsável por danos indiretos, incidentais, especiais, consequenciais ou lucros cessantes decorrentes do uso ou da impossibilidade de uso do App, incluindo perda de dados, perda de horas registradas ou prejuízos decorrentes de erro de cálculo ou falha de alarme.
 
-Como o PontoCerto é um app gratuito de uso pessoal, sem cobrança, a responsabilidade total do desenvolvedor, quando aplicável e não afastada pela lei, fica limitada ao valor eventualmente pago pelo App nos 12 meses anteriores ao evento (ou R$ 0, caso o App seja gratuito).
+A responsabilidade total do desenvolvedor, quando aplicável e não afastada pela lei, fica limitada ao valor que você pagou pelo PontoCerto Pro nos 12 meses anteriores ao evento (ou R$ 0, se você usa apenas a versão gratuita).
 
 Nada nestes Termos exclui responsabilidade que não possa ser legalmente afastada, como em casos de dolo ou culpa grave do desenvolvedor.
 
 ---
 
-## 6. Propriedade intelectual
+## 8. Propriedade intelectual
 
 O PontoCerto, incluindo design, código, marca e conteúdo, é de propriedade de Renato Ferraz e protegido por leis de direitos autorais. Estes Termos não transferem nenhum direito de propriedade sobre o App.
 
 ---
 
-## 7. Atualizações e disponibilidade
+## 9. Atualizações e disponibilidade
 
 Podemos lançar atualizações, alterar ou descontinuar recursos do App a qualquer momento. Não há obrigação de suporte contínuo, embora a intenção seja manter o App funcionando e evoluindo.
 
 ---
 
-## 8. Encerramento
+## 10. Encerramento
 
-Você pode encerrar o uso a qualquer momento apagando o App do dispositivo. Isso não afeta dados já sincronizados na sua conta iCloud pessoal, que permanecem sob seu controle.
+Você pode encerrar o uso a qualquer momento apagando o App do dispositivo. Isso não cancela uma assinatura ativa (cancele em Ajustes › [seu nome] › Assinaturas) nem afeta dados já sincronizados na sua conta iCloud pessoal, que permanecem sob seu controle.
 
 ---
 
-## 9. Lei aplicável e foro
+## 11. Lei aplicável e foro
 
 Estes Termos são regidos pelas leis da República Federativa do Brasil. Eventuais disputas serão resolvidas no foro da comarca de domicílio do desenvolvedor, salvo disposição legal em contrário que garanta foro diverso ao usuário consumidor.
 
 ---
 
-## 10. Alterações nestes Termos
+## 12. Alterações nestes Termos
 
 Podemos atualizar estes Termos quando necessário. Alterações relevantes serão comunicadas dentro do App, e a data de "Última atualização" no topo será revisada. O uso contínuo do App após a publicação de alterações significa que você aceita os novos Termos.
 
 ---
 
-## 11. Contato
+## 13. Contato
 
 Dúvidas sobre estes Termos:
 

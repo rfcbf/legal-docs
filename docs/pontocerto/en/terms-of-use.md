@@ -1,7 +1,7 @@
 # Terms of Use for PontoCerto
 
 **Effective date:** August 10, 2026
-**Last updated:** August 10, 2026
+**Last updated:** October 21, 2026
 
 Please read these Terms of Use ("Terms") carefully before using PontoCerto ("the App"), developed by Renato Ferraz ("developer," "we").
 
@@ -30,13 +30,34 @@ You may not:
 
 ## 3. Your data and privacy
 
-PontoCerto has no server of its own. Your records stay on your device and, if enabled, sync exclusively through your personal iCloud account. Full details in our [Privacy Policy](privacy-policy.md).
+Your time records stay on your device and, if enabled, sync exclusively through your personal iCloud account. Full details in our [Privacy Policy](privacy-policy.md).
 
-You are solely responsible for maintaining backups (via iCloud) and for the security of your Apple ID account.
+You are solely responsible for maintaining backups (iCloud or a backup file) and for the security of your Apple Account.
 
 ---
 
-## 4. Disclaimer regarding calculations and alarms
+## 4. UAPP account, suggestions and comments
+
+The App optionally lets you sign in to a UAPP account and send suggestions, comments and votes through Feedback and the Roadmap. None of this is required to use PontoCerto.
+
+What you publish on the Roadmap can be seen by other people who use the App, with your name and photo. By sending it, you state that the content is yours and agree not to post content that is illegal, offensive, discriminatory, sexual, violent, spam, or that infringes the rights of others. We may hide or remove content and block authors who break these rules. To report content, write to the contact e-mail below.
+
+---
+
+## 5. PontoCerto Pro (subscriptions)
+
+PontoCerto can be used for free. Some features (such as real alarms, the PDF report, the Apple Watch app, widgets, full history and automatic backup) are part of PontoCerto Pro, an auto-renewable subscription.
+
+- The purchase is made and billed by the App Store to your Apple Account and follows Apple's terms.
+- The subscription renews automatically for the same period and price unless it is canceled at least 24 hours before the end of the current period.
+- A free trial, when offered, becomes a paid subscription when it ends, unless canceled at least 24 hours before the end of the trial.
+- You can manage or cancel the subscription in Settings › [your name] › Subscriptions. Cancellation takes effect at the end of the period already paid.
+- Refunds are handled by Apple under the App Store rules.
+- The same subscription works on the iPhone, iPad, Mac and Apple Watch signed in to the same Apple Account. Use "Restore Purchases" to activate it on another device.
+
+---
+
+## 6. Disclaimer regarding calculations and alarms
 
 **This is the most important section of these Terms — please read it carefully.**
 
@@ -50,47 +71,47 @@ You use PontoCerto at your own risk, as a personal support tool — the ultimate
 
 ---
 
-## 5. Limitation of liability
+## 7. Limitation of liability
 
 To the maximum extent permitted by applicable law, the developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from the use or inability to use the App, including loss of data, loss of recorded hours, or losses resulting from a calculation error or alarm failure.
 
-Since PontoCerto is a free, personal-use app with no charge, the developer's total liability, where applicable and not excluded by law, is limited to the amount you paid for the App in the 12 months preceding the event (or $0, if the App is free).
+The developer's total liability, where applicable and not excluded by law, is limited to the amount you paid for PontoCerto Pro in the 12 months preceding the event (or $0, if you only use the free version).
 
 Nothing in these Terms excludes liability that cannot be lawfully excluded, such as liability arising from the developer's willful misconduct or gross negligence.
 
 ---
 
-## 6. Intellectual property
+## 8. Intellectual property
 
 PontoCerto, including its design, code, branding, and content, is owned by Renato Ferraz and protected by copyright law. These Terms do not transfer any ownership rights in the App to you.
 
 ---
 
-## 7. Updates and availability
+## 9. Updates and availability
 
 We may release updates, change, or discontinue features of the App at any time. There is no obligation of ongoing support, although the intent is to keep improving the App.
 
 ---
 
-## 8. Termination
+## 10. Termination
 
-You may stop using the App at any time by deleting it from your device. This does not affect data already synced to your personal iCloud account, which remains under your control.
+You may stop using the App at any time by deleting it from your device. This does not cancel an active subscription (cancel it in Settings › [your name] › Subscriptions) and does not affect data already synced to your personal iCloud account, which remains under your control.
 
 ---
 
-## 9. Governing law and venue
+## 11. Governing law and venue
 
 These Terms are governed by the laws of the Federative Republic of Brazil. Any disputes will be resolved in the courts of the developer's domicile, except where applicable law grants the user a different venue.
 
 ---
 
-## 10. Changes to these Terms
+## 12. Changes to these Terms
 
 We may update these Terms when necessary. Material changes will be communicated within the App, and the "Last updated" date at the top will be revised. Continued use of the App after changes are posted means you accept the updated Terms.
 
 ---
 
-## 11. Contact
+## 13. Contact
 
 Questions about these Terms:
 
