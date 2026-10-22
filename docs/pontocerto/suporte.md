@@ -38,7 +38,7 @@ Use Ajustes › Backup para criar um arquivo de backup e importá-lo no outro ap
 
 ### Como excluo meus dados?
 
-Veja a seção "Seus direitos e controle" da [Política de Privacidade](politica-privacidade.md). Para excluir a conta UAPP e as sugestões enviadas, escreva para o e-mail acima.
+Veja a seção "Seus direitos e controle" da [Política de Privacidade](politica-privacidade.md). Para excluir a conta UAPP, abra a conta em Ajustes e toque em **Excluir conta**. Para apagar sugestões enviadas sem conta, escreva para o e-mail acima.
 
 ## Documentos
 

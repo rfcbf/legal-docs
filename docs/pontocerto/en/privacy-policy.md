@@ -87,7 +87,7 @@ Other than that, we do not share data with third parties. Apple takes part in st
 - **Access and correction:** your records and profile are visible and editable in the app at any time.
 - **Export:** the file backup (Settings › Backup) creates a copy of your data that you can keep or move to another device.
 - **Deleting app data:** deleting records in the app or uninstalling it removes the data from the device; turning off iCloud for the app (Settings › [your name] › iCloud) and deleting its data removes what is in CloudKit.
-- **Deleting UAPP data:** you can sign out of the UAPP account in Settings. To delete the UAPP account and the suggestions and comments you sent, write to the e-mail below; the request is handled within the period set by the LGPD.
+- **Deleting UAPP data:** with the UAPP account signed in, open the account in Settings and tap **Delete account**: the account, photo and sessions are deleted and the "Sign in with Apple" access is revoked. You can also just sign out. To delete suggestions and comments sent without an account, write to the e-mail below; the request is handled within the period set by the LGPD.
 - **Revoking permissions:** camera, photos, notifications and alarms can be turned off at any time in the system Settings.
 
 For questions about the processing of personal data under Brazil's General Data Protection Law (LGPD — Law No. 13,709/2018), contact us at the e-mail below.

@@ -38,7 +38,7 @@ Use Settings › Backup to create a backup file and import it on the other devic
 
 ### How do I delete my data?
 
-See the "Your rights and control" section of the [Privacy Policy](privacy-policy.md). To delete the UAPP account and the suggestions you sent, write to the e-mail above.
+See the "Your rights and control" section of the [Privacy Policy](privacy-policy.md). To delete the UAPP account, open the account in Settings and tap **Delete account**. To delete suggestions sent without an account, write to the e-mail above.
 
 ## Documents
 

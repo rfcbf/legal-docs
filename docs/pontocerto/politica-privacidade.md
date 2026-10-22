@@ -87,7 +87,7 @@ Fora isso, não compartilhamos dados com terceiros. A Apple participa do armazen
 - **Acesso e correção:** seus registros e o seu perfil ficam visíveis e editáveis no próprio app, a qualquer momento.
 - **Exportação:** o backup em arquivo (Ajustes › Backup) gera uma cópia dos seus dados que você pode guardar ou levar para outro aparelho.
 - **Exclusão dos dados do app:** apagar os registros dentro do app ou desinstalá-lo remove os dados do dispositivo; desligar o iCloud para o app (Ajustes › [seu nome] › iCloud) e apagar os dados dele remove o que está no CloudKit.
-- **Exclusão dos dados do UAPP:** você pode sair da conta UAPP em Ajustes. Para excluir a conta UAPP, as sugestões e os comentários enviados, escreva para o e-mail abaixo; o pedido é atendido no prazo previsto pela LGPD.
+- **Exclusão dos dados do UAPP:** com a conta UAPP conectada, abra a conta em Ajustes e toque em **Excluir conta**: a conta, a foto e as sessões são apagadas e o acesso do "Iniciar sessão com a Apple" é revogado. Você também pode só sair da conta. Para apagar sugestões e comentários enviados sem conta, escreva para o e-mail abaixo; o pedido é atendido no prazo previsto pela LGPD.
 - **Revogar permissões:** câmera, fotos, notificações e alarmes podem ser desligados a qualquer momento nos Ajustes do sistema.
 
 Em caso de dúvidas sobre tratamento de dados pessoais nos termos da Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018), entre em contato pelo e-mail abaixo.
